@@ -66,15 +66,12 @@ Gem::Specification.new do |s|
     "doc/js/searcher.js",
     "doc/rdoc.css",
     "doc/table_of_contents.html",
+    "ds_hash.gemspec",
     "ds_hash.rb",
-    "ds_hash_spec.rb",
     "lib/ds_hash.rb",
     "lib/ds_hash/hash_core_ext.rb",
-    "lib/ds_hash/version.rb",
-    "pkg/ds_hash-.gem",
     "spec/ds_hash_spec.rb",
-    "spec/spec_helper.rb",
-    "spec_helper.rb"
+    "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/del.soft.99@gmail.com/ds_hash"
   s.licenses = ["MIT"]
