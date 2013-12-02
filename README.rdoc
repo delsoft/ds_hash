@@ -1,6 +1,30 @@
-= ds_hash
+= DsHash
 
-Description goes here.
+A Ruby Hash class extensions.
+
+== Install
+
+  gem install ds_hash
+
+== Learning by example
+
+_Hash_.+compact+
+
+  { a: 1, b: nil }.compact == { a: 1 }  # remove nil values
+  { a: 1, nil: 1 }.compact == { a: 1 }  # remove nil keys
+
+_Hash_.+compact!+
+
+  vide: Hash.compact
+
+_Hash_.+deep_dup+
+
+  hash = { :a => { :b => 'b' } }
+  dup  = hash.deep_dup           # Returns a deep copy of hash (like rails active support)
+  dup[:a][:c] = 'c'
+  
+  hash[:a][:c] #=> nil
+  dup[:a][:c]  #=> "c"
 
 == Contributing to ds_hash
  
