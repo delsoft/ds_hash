@@ -52,8 +52,14 @@ Rake::RDocTask.new do |rdoc|
 end
 
 namespace :gem do
+
   desc 'gem build'
   task :build do
       system 'gem build ds_hash.gemspec; mv *.gem pkg'
+  end
+
+  desc 'gem release'
+  task :release do
+      system 'rm pkg/*; rake gem:build; gem push pkg/*'
   end
 end
