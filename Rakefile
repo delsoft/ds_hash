@@ -10,17 +10,19 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 require 'rake'
+require File.expand_path("../lib/ds_hash/version", __FILE__)
 
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "ds_hash"
-  gem.homepage = "http://github.com/del.soft.99@gmail.com/ds_hash"
+  gem.homepage = "https://github.com/delsoft/ds_hash"
   gem.license = "MIT"
-  gem.summary = %Q{Hash class extensions}
+  gem.summary = %Q{Hash class extensions }
   gem.description = %Q{Hash class extensions}
   gem.email = "noliveira@telelistas.net"
   gem.author = "nardele salomon"
+  gem.files.exclude  'doc/**/*'
   # dependencies defined in Gemfile
 end
 
@@ -47,4 +49,11 @@ Rake::RDocTask.new do |rdoc|
   rdoc.title = "ds_hash version"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
+end
+
+namespace :gem do
+  desc 'gem build'
+  task :build do
+      system 'gem build ds_hash.gemspec; mv *.gem pkg'
+  end
 end

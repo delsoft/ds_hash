@@ -3,15 +3,17 @@
 # Instead, edit Jeweler::Tasks in Rakefile, and run 'rake gemspec'
 # -*- encoding: utf-8 -*-
 
+require File.expand_path('../lib/ds_hash/version', __FILE__)
+
 Gem::Specification.new do |s|
   s.name = "ds_hash"
-  s.version = "0.0.1"
+  s.version = "#{DsHash::VERSION}"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["nardele salomon"]
   s.date = "2013-12-02"
   s.description = "Hash class extensions"
-  s.email = "noliveira@telelistas.net"
+  s.email = "del.soft.99@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
@@ -22,50 +24,6 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
-    "VERSION",
-    "doc/DsHash.html",
-    "doc/Gemfile.html",
-    "doc/Gemfile_lock.html",
-    "doc/Hash.html",
-    "doc/LICENSE_txt.html",
-    "doc/README_rdoc.html",
-    "doc/Rakefile.html",
-    "doc/created.rid",
-    "doc/doc/created_rid.html",
-    "doc/images/add.png",
-    "doc/images/arrow_up.png",
-    "doc/images/brick.png",
-    "doc/images/brick_link.png",
-    "doc/images/bug.png",
-    "doc/images/bullet_black.png",
-    "doc/images/bullet_toggle_minus.png",
-    "doc/images/bullet_toggle_plus.png",
-    "doc/images/date.png",
-    "doc/images/delete.png",
-    "doc/images/find.png",
-    "doc/images/loadingAnimation.gif",
-    "doc/images/macFFBgHack.png",
-    "doc/images/package.png",
-    "doc/images/page_green.png",
-    "doc/images/page_white_text.png",
-    "doc/images/page_white_width.png",
-    "doc/images/plugin.png",
-    "doc/images/ruby.png",
-    "doc/images/tag_blue.png",
-    "doc/images/tag_green.png",
-    "doc/images/transparent.png",
-    "doc/images/wrench.png",
-    "doc/images/wrench_orange.png",
-    "doc/images/zoom.png",
-    "doc/index.html",
-    "doc/js/darkfish.js",
-    "doc/js/jquery.js",
-    "doc/js/navigation.js",
-    "doc/js/search.js",
-    "doc/js/search_index.js",
-    "doc/js/searcher.js",
-    "doc/rdoc.css",
-    "doc/table_of_contents.html",
     "ds_hash.gemspec",
     "ds_hash.rb",
     "lib/ds_hash.rb",
@@ -73,11 +31,11 @@ Gem::Specification.new do |s|
     "spec/ds_hash_spec.rb",
     "spec/spec_helper.rb"
   ]
-  s.homepage = "http://github.com/del.soft.99@gmail.com/ds_hash"
+  s.homepage = "https://github.com/delsoft/ds_hash"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "2.0.3"
-  s.summary = "Hash class extensions"
+  s.summary = "Hash class extensions v. #{DsHash::VERSION}"
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
