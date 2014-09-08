@@ -5,6 +5,7 @@ class Hash
   # :method: deep_dup
   # 	Returns a deep copy of hash. like rails active support
 
+  
   define_method 'deep_dup' do
 		duplicate = self.dup
 			duplicate.each_pair do |k,v|
@@ -14,18 +15,56 @@ class Hash
 			duplicate
 	end unless self.method_defined? 'deep_dup'
 	
-	##
-	# self remove all empty values and/or keys
-	def compact! compact_key=true
-	  deep_swap_proc = Proc.new { |k, v| v.delete_if(&deep_swap_proc) if v.kind_of?(Hash);  v.to_s.empty? || (compact_key && k.to_s.empty? ) }
-      delete_if &deep_swap_proc
-	end
 
-  ##
-	# remove all empty values and/or keys of hash
-	def compact compact_key=true
-     hsh = self.deep_dup
-     hsh.compact! compact_key
-	end
+  unless self.method_defined? 'clean'
+  
+    def clean!
+      swoop = Proc.new { |k, v| 
+        if v.respond_to? 'clean!'
+          v.clean!
+          false
+        elsif v.respond_to? 'compact!'
+          v.compact!
+          false
+        else
+          v.to_s.empty? 
+        end
+      }
+      delete_if &swoop
+    end
+    
+    def clean
+      hsh = self.deep_dup
+      hsh.clean!
+    end
+    
+    alias_method :compact, :clean unless self.method_defined? 'compact'
+    alias_method :compact!, :clean! unless self.method_defined? 'compact!'
+  end
+
+
+  unless self.method_defined? 'deep_key?' 
+    def deep_key? *keys
+      key = keys.shift
+      return key?(key) if keys.empty?
+      return self[key].deep_key?(*keys) if self[key].is_a? Hash
+      false
+    end
+  end
+
+  unless self.method_defined? 'deep_fetch' 
+    def deep_fetch *keys
+      key = keys.shift
+      if keys.empty? 
+        if block_given?
+          yield self[key] || {}
+        else
+          self[key] 
+        end
+      elsif self[key].is_a? Hash      
+        self[key].deep_fetch(*keys)  
+      end
+    end
+  end
 
 end
