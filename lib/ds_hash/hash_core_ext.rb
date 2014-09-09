@@ -54,16 +54,20 @@ class Hash
 
   unless self.method_defined? 'deep_fetch' 
     def deep_fetch *keys
+      def_value = keys.pop unless keys[keys.size-1].is_a? Symbol
       key = keys.shift
-      if keys.empty? 
+      if !key.is_a? Symbol
+        return nil
+      elsif keys.empty? 
         if block_given?
-          yield self[key] || {}
+          ret = yield self[key] || {}
         else
-          self[key] 
+          ret = self[key] 
         end
       elsif self[key].is_a? Hash      
-        self[key].deep_fetch(*keys)  
+        ret = self[key].deep_fetch(*keys)  
       end
+      ret || def_value
     end
   end
 

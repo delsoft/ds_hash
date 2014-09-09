@@ -44,6 +44,10 @@ context "#deep_fetch" do
   it { hash_clean_values.deep_fetch(:g).should eq 3 }
   it { hash_clean_values.deep_fetch(:d).should eq nil }
   it { hash_clean_values.deep_fetch(:d, :a, :j).should eq nil }
+  it { hash_clean_values.deep_fetch(:d, []).should eq [] }
+  it { hash_clean_values.deep_fetch(:d, :a, :j, []).should eq [] }
+  it { hash_clean_values.deep_fetch(:d, 'a').should eq 'a' }
+  it { hash_clean_values.deep_fetch(:d, :a, :j, 'b').should eq 'b' }
 end
 
 end
