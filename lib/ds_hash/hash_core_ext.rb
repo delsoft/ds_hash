@@ -67,7 +67,7 @@ class Hash
       elsif self[key].is_a? Hash      
         ret = self[key].deep_fetch(*keys)  
       end
-      ret || def_value
+      ret == nil ? def_value : ret
     end
   end
 

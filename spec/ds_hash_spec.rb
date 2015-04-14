@@ -3,7 +3,11 @@ require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 describe "DsHash" do
 
 let(:hash_clean_values){
-	 { a: { b: 1, c: { d: 2 } }, g: 3 , j: [1,2]}
+   { a: { b: 1, c: { d: 2 } }, g: 3 , j: [1,2]}
+}
+
+let(:hash_with_false_values){
+   { a: { b: false}}
 }
 
 let(:hash_with_empty_values) { 
@@ -48,6 +52,12 @@ context "#deep_fetch" do
   it { hash_clean_values.deep_fetch(:d, :a, :j, []).should eq [] }
   it { hash_clean_values.deep_fetch(:d, 'a').should eq 'a' }
   it { hash_clean_values.deep_fetch(:d, :a, :j, 'b').should eq 'b' }
+
+
+  it { hash_with_false_values.deep_fetch(:a, :b).should === false }
+  it { hash_with_false_values.deep_fetch(:a, :b, nil).should === false }
+
+
 end
 
 end
