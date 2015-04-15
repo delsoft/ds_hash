@@ -1,4 +1,3 @@
-
 class Hash
   
   ##
@@ -68,6 +67,21 @@ class Hash
         ret = self[key].deep_fetch(*keys)  
       end
       ret == nil ? def_value : ret
+    end
+  end
+
+  unless self.method_defined? 'to_struct' 
+    def to_struct
+      hash = self
+      klass = Struct.new(*hash.keys.map(&:to_sym) )
+      struct = klass.new(*hash.values)
+      hash.each do |key, value|
+        if value.is_a?(Hash)
+          v = value.to_struct
+          struct[key] = v
+        end
+      end
+      return struct
     end
   end
 

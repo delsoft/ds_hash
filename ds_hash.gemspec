@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["nardele salomon"]
-  s.date = "2015-04-14"
+  s.date = "2015-04-15"
   s.description = "Hash class extensions"
   s.email = "del.soft.99@gmail.com"
   s.extra_rdoc_files = [

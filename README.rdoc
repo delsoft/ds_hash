@@ -17,6 +17,27 @@ _Hash_.+compact!+
 
   vide: Hash.compact
 
+_Hash_.+clean+
+
+  idem Hash.compact
+
+_Hash_.+clean!+
+
+  idem Hash.compact!
+
+_Hash_.+deep_key?+
+  
+  hash = { :a => { :b => 'b' } }
+  hash.deep_key? :a, :b    # return true
+  hash.deep_key? :a, :x    # return false
+
+_Hash_.+deep_fetch+
+  
+  hash = { :a => { :b => 'hello' } }
+  hash.deep_key? :a, :b    # return 'hello'
+  hash.deep_key? :a, :x    # return nil
+
+
 _Hash_.+deep_dup+
 
   hash = { :a => { :b => 'b' } }
@@ -25,6 +46,14 @@ _Hash_.+deep_dup+
   
   hash[:a][:c] #=> nil
   dup[:a][:c]  #=> "c"
+
+_Hash_.+to_struct+
+
+  hash = { :a => { :b => 'hello' } }
+  struct  = hash.to_struct     # Returns a nested struct 
+  puts struct.a                #  { :b => 'hello' }
+  puts struct.a.b              # 'hello'
+  
 
 == Contributing to ds_hash
  
