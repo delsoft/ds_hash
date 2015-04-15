@@ -8,23 +8,6 @@ A Ruby Hash class extensions.
 
 == Learning by example
 
-_Hash_.+compact+
-
-  { a: 1, b: nil }.compact == { a: 1 }  # remove nil values
-  { a: 1, nil: 1 }.compact == { a: 1 }  # remove nil keys
-
-_Hash_.+compact!+
-
-  vide: Hash.compact
-
-_Hash_.+clean+
-
-  idem Hash.compact
-
-_Hash_.+clean!+
-
-  idem Hash.compact!
-
 _Hash_.+deep_key?+
   
   hash = { :a => { :b => 'b' } }
@@ -54,6 +37,21 @@ _Hash_.+to_struct+
   puts struct.a                #  { :b => 'hello' }
   puts struct.a.b              # 'hello'
   
+_Hash_.+compact+
+
+  { a: 1, b: nil }.compact == { a: 1 }  # remove nil values
+  
+_Hash_.+compact!+
+
+  vide Hash.compact
+
+_Hash_.+clean+
+
+  idem Hash.compact
+
+_Hash_.+clean!+
+
+  idem Hash.compact!
 
 == Contributing to ds_hash
  
