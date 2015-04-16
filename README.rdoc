@@ -17,8 +17,8 @@ _Hash_.+deep_key?+
 _Hash_.+deep_fetch+
   
   hash = { :a => { :b => 'hello' } }
-  hash.deep_key? :a, :b    # return 'hello'
-  hash.deep_key? :a, :x    # return nil
+  hash.deep_fetch :a, :b    # return 'hello'
+  hash.deep_fetch :a, :x    # return nil
 
 
 _Hash_.+deep_dup+
