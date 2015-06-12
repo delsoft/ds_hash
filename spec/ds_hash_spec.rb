@@ -8,7 +8,7 @@ let(:hash_clean_values){
 
 
 let(:hash_with_empty_values) { 
-	 { a: { b: 1, c: { d: 2, e: nil}, f: nil }, g: 3, h: nil, j: [nil, '', 1, 2] }
+	 { a: { b: 1, c: { d: 2, e: nil}, f: nil }, g: 3, h: nil, j: [nil, '', {}, [], 1, 2] }
 }
 
 

@@ -5,13 +5,13 @@ class Array
       swoop = Proc.new { |v| 
         if v.respond_to? 'clean!'
           v.clean!
-          false
+          v.empty?
         elsif v.respond_to? 'compact!'
           v.compact!
-          false
+          v.empty?
         else
-          v.to_s.empty? 
-        end
+           v.to_s.empty? 
+        end        
       }
       delete_if &swoop
     end

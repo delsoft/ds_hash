@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "ds_hash.rb",
     "lib/ds_hash.rb",
     "lib/ds_hash/hash_core_ext.rb",
+    "lib/ds_hash/array_core_ext.rb",
     "lib/ds_hash/version.rb",
     "spec/ds_hash_spec.rb",
     "spec/spec_helper.rb"
