@@ -40,8 +40,6 @@ Gem::Specification.new do |s|
   s.summary = "Hash class extensions v. #{DsHash::VERSION}"
 
   s.add_development_dependency(%q<rspec>, ["~> 2.8"])
-
-  s.add_dependency(%q<rdoc>, ["~> 3.12"])
-  s.add_dependency(%q<bundler>, ["~> 1.0"])
+  s.add_development_dependency(%q<bundler>, ["~> 1.0"])
 end
 
